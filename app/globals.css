@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #0e100f;
@@ -12,14 +12,26 @@
   --font-handwriting: var(--font-architects-daughter);
   --color-pink: #ff6ec7;
   --color-dark-pink: #d1007f;
-  --text-sandy: 11.5rem;
-  --text-sandy--line-height: 10.25rem;
+
+  --text-sandy: clamp(7rem, 2rem + 10vw, 11.5rem);
+  --text-sandy--line-height: 0.9;
   --text-sandy--letter-spacing: 0.125rem;
   --text-sandy--font-weight: 700;
-  --text-mo: 10rem;
-  --text-mo--line-height: 10rem;
+
+  --text-sandy-mobile: clamp(1rem, 25vw, 11.5rem);
+  --text-sandy-mobile--line-height: 0.9;
+  --text-sandy-mobile--letter-spacing: 0.125rem;
+  --text-sandy-mobile--font-weight: 700;
+
+  --text-mo: clamp(4rem, 1rem + 12vw, 10rem);
+  --text-mo--line-height: 1;
   --text-mo--letter-spacing: 0.125rem;
   --text-mo--font-weight: 700;
+
+  --text-mo-mobile: clamp(4rem, 23vw, 10rem);
+  --text-mo-mobile--line-height: 1;
+  --text-mo-mobile--letter-spacing: 0.125rem;
+  --text-mo-mobile--font-weight: 700;
 }
 
 body {
