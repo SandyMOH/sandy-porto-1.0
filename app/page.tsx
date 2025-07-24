@@ -5,8 +5,6 @@ export default function Home() {
     <div className="flex flex-col font-sans">
       <main className="flex-1 pt-4">
         <Hero />
-        {/* <Hero /> */}
-        {/* <Hero /> */}
       </main>
     </div>
   );
