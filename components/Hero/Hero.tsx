@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
+import Sandy from './AnimationComponent/Sandy';
+import Punchline from './AnimationComponent/Punchline';
+
 const Hero: React.FC = () => {
   const services = [
     'CREATIVE',
@@ -14,10 +17,8 @@ const Hero: React.FC = () => {
     <section className="container mx-auto h-full px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex h-full items-center justify-center gap-4">
         <div className="flex w-fit flex-col justify-center text-right">
-          <h6 className="font-handwriting text-lg md:text-2xl lg:text-3xl">
-            I Code and Design just for you
-          </h6>
-          <h1 className="text-sandy-mobile md:text-sandy">Sandy</h1>
+          <Punchline />
+          <Sandy />
           <div className="flex w-full justify-end gap-4">
             <div className="flex h-40 flex-col justify-end gap-1 md:h-48 lg:h-60">
               {services.map((service, index) => (
