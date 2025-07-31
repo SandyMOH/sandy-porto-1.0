@@ -2,17 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 
 import Sandy from './AnimationComponent/Sandy';
+import Mo from './AnimationComponent/Mo';
+import Services from './AnimationComponent/Services';
 import Punchline from './AnimationComponent/Punchline';
 
 const Hero: React.FC = () => {
-  const services = [
-    'CREATIVE',
-    'WEBSITES',
-    'WEB APP',
-    'MOBILE APP',
-    'E-COMMERCE',
-  ];
-
   return (
     <section className="container mx-auto h-full px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex h-full items-center justify-center gap-4">
@@ -20,17 +14,8 @@ const Hero: React.FC = () => {
           <Punchline />
           <Sandy />
           <div className="flex w-full justify-end gap-4">
-            <div className="flex h-40 flex-col justify-end gap-1 md:h-48 lg:h-60">
-              {services.map((service, index) => (
-                <h6
-                  key={index}
-                  className="font-handwriting text-base font-bold md:text-xl lg:text-2xl"
-                >
-                  {service}
-                </h6>
-              ))}
-            </div>
-            <h2 className="text-mo-mobile md:text-mo h-fit">Mo.</h2>
+            <Services />
+            <Mo />
           </div>
         </div>
         <div className="hidden w-fit items-center justify-center md:flex">
