@@ -37,21 +37,21 @@ const Sandy: React.FC = () => {
             addOverflowHidden('NSection');
             addOverflowHidden('DSection');
             timelineRoll({
-              delay: 1.5,
+              delay: 0,
               mainItem: 'a-text',
               item1: 'a-triangle',
               item2: 'a-a',
               item3: 'a-circle',
             });
             timelineRoll({
-              delay: 1.75,
+              delay: 0.25,
               mainItem: 'n-text',
               item1: 'n-circle',
               item2: 'n-text',
               item3: 'n-triangle',
             });
             timelineRoll({
-              delay: 2,
+              delay: 0.5,
               mainItem: 'd-text',
               item1: 'd-triangle',
               item2: 'd-text',
