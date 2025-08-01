@@ -3,7 +3,11 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
-const Services: React.FC = () => {
+interface ServicesI {
+  delay: number;
+}
+
+const Services: React.FC<ServicesI> = ({ delay }) => {
   const services = [
     'CREATIVE',
     'WEBSITES',
@@ -14,7 +18,7 @@ const Services: React.FC = () => {
 
   useGSAP(() => {
     const timeline = gsap.timeline({
-      delay: 4.5,
+      delay: delay,
     });
 
     timeline.from('.service-item', {
