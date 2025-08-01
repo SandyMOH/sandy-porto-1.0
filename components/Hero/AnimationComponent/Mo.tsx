@@ -73,6 +73,9 @@ const Mo: React.FC = () => {
           stagger: {
             amount: 0.25,
             from: 'start',
+            onComplete: () => {
+              removeComponent('hide-component-mo');
+            },
           },
         },
         '<'
@@ -89,7 +92,7 @@ const Mo: React.FC = () => {
       </h2>
       <h2
         id="mo-100"
-        className="absolute top-0 left-0 flex h-fit w-full items-center justify-center overflow-hidden"
+        className="hide-component-mo absolute top-0 left-0 flex h-fit w-full items-center justify-center overflow-hidden"
       >
         100
       </h2>
