@@ -39,8 +39,12 @@ export default function RootLayout({
       <body
         className={`${fontSyne.variable} ${fontArchitectsDaughter.variable} antialiased`}
       >
-        <ZoomManager />
-        <ScrollToTopManager />
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <ZoomManager />
+            <ScrollToTopManager />
+          </>
+        )}
         {children}
       </body>
     </html>
