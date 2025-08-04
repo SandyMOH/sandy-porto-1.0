@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import ZoomManager from '@/components/ZoomManager';
 import { Syne, Architects_Daughter } from 'next/font/google';
 import './globals.css';
+import ZoomManager from '@/components/ZoomManager';
+import ScrollToTopManager from '@/components/ScrollToTopManager';
 
 const fontSyne = Syne({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${fontSyne.variable} ${fontArchitectsDaughter.variable} antialiased`}
       >
         <ZoomManager />
+        <ScrollToTopManager />
         {children}
       </body>
     </html>
