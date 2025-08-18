@@ -32,10 +32,30 @@
   --text-mo-mobile--line-height: 1;
   --text-mo-mobile--letter-spacing: 0.125rem;
   --text-mo-mobile--font-weight: 700;
+
+  --screens-sm: 640px;
+  --screens-md: 768px;
+  --screens-lg: 1024px;
+  --screens-xl: 1280px;
+  --screens-2xl: 1536px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+polyline {
+  --_height: 50;
+  --_count: 10;
+  --_y: (var(--_height) * var(--i) / var(--_count)) * 1px;
+  --_offset: (var(--_height) / var(--_count)) * 0.5px;
+  fill: none;
+  stroke: #ff6ec7;
+  stroke-linecap: round;
+  stroke-width: 0.09;
+  transform-box: fill-box;
+  transform-origin: center;
+  translate: 0 calc(var(--_y) - var(--_offset));
 }
