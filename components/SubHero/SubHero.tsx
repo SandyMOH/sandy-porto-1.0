@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useResponsiveSvgConfig } from './useResponsiveSvgConfig';
 
 import Image from 'next/image';
 
@@ -30,6 +31,8 @@ const ScrollWaves: React.FC = () => {
   const width = 100; // Corresponds to the SVG viewBox width
   const freq = 20; // Frequency of the wave
   const damp = 60; // Damping factor for the wave amplitude
+
+  const { lineCount, viewBox } = useResponsiveSvgConfig();
 
   // This effect runs once on component mount to load the required GSAP scripts.
   useEffect(() => {
@@ -65,7 +68,6 @@ const ScrollWaves: React.FC = () => {
 
   // This effect runs only after the GSAP scripts are ready (isGsapReady becomes true).
   useEffect(() => {
-    console.log(123, isGsapReady);
     if (!isGsapReady) return; // Don't run animation logic until GSAP is loaded.
 
     // Register the Observer plugin with GSAP.
@@ -121,9 +123,9 @@ const ScrollWaves: React.FC = () => {
       <section ref={mainRef} className="relative grid place-items-center">
         <svg
           className="h-auto w-full overflow-visible [grid-area:1/1]"
-          viewBox="0 0 100 50"
+          viewBox={viewBox}
         >
-          {Array.from({ length: 10 }).map((_, i) => (
+          {Array.from({ length: lineCount }).map((_, i) => (
             <polyline
               key={`wave-${i}`}
               style={{ '--i': i + 1 } as PolylineStyle}
@@ -138,7 +140,7 @@ const ScrollWaves: React.FC = () => {
             alt="sandy walk"
             width={350}
             height={130}
-            className="h-auto w-48 md:w-72 lg:w-80 2xl:w-96"
+            className="h-auto w-56 md:w-80 lg:w-96"
           />
         </div>
       </section>
