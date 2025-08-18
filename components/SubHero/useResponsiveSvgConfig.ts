@@ -12,7 +12,7 @@ type Breakpoint = 'default' | 'xl';
 // Type the main configuration object to ensure it matches our defined types.
 const configs: Record<Breakpoint, SvgConfig> = {
   default: { lineCount: 20, viewBox: '0 0 100 100' },
-  xl: { lineCount: 20, viewBox: '0 0 100 60' },
+  xl: { lineCount: 20, viewBox: '0 0 100 50' },
 };
 
 /**

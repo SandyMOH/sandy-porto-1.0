@@ -47,15 +47,22 @@ body {
 }
 
 polyline {
-  --_height: 50;
-  --_count: 10;
+  --_height: 100;
+  --_count: 20;
   --_y: (var(--_height) * var(--i) / var(--_count)) * 1px;
   --_offset: (var(--_height) / var(--_count)) * 0.5px;
   fill: none;
-  stroke: #ff6ec7;
+  stroke: var(--color-pink);
   stroke-linecap: round;
-  stroke-width: 0.09;
+  stroke-width: 0.1;
   transform-box: fill-box;
   transform-origin: center;
   translate: 0 calc(var(--_y) - var(--_offset));
+}
+
+@media (min-width: 1280px) {
+  polyline {
+    --_height: 50;
+    --_count: 20;
+  }
 }
