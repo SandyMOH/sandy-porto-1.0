@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
           <HoverChange
             firstText="About"
             secondText="About"
-            onClick={() => goTo('')}
+            onClick={() => goTo('about')}
             className="w-fit"
           />
         </li>
