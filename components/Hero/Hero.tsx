@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             <Mo />
           </div>
         </div>
-        <div className="hidden w-fit items-center justify-center md:flex">
+        {/* <div className="hidden w-fit items-center justify-center md:flex">
           <Image
             src="/images/hero/dummy.jpg"
             alt="Sandy Mo"
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
             height={500}
             className="shadow-[0px_0px_48px_16px_#FF6EC740]"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
