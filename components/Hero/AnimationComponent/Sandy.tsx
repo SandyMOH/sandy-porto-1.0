@@ -223,7 +223,7 @@ const Sandy: React.FC = () => {
       <div id="s" className="sandy">
         S
       </div>
-      <div id="ASection" className="relative w-[0.7em]">
+      <div id="ASection" className="relative">
         <div
           id="a-text"
           className="slide-section w-full"
@@ -249,7 +249,7 @@ const Sandy: React.FC = () => {
           );
         })}
       </div>
-      <div id="NSection" className="relative w-[0.75em]">
+      <div id="NSection" className="relative">
         <div id="n-text" className="slide-section w-full">
           n
         </div>
@@ -287,7 +287,7 @@ const Sandy: React.FC = () => {
           );
         })}
       </div>
-      <div id="DSection" className="relative w-[0.75em]">
+      <div id="DSection" className="relative">
         <div id="d-text" className="slide-section w-full">
           d
         </div>
