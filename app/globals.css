@@ -60,9 +60,9 @@ polyline {
   translate: 0 calc(var(--_y) - var(--_offset));
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1250px) {
   polyline {
-    --_height: 50;
+    --_height: 60;
     --_count: 20;
   }
 }

@@ -12,7 +12,7 @@ type Breakpoint = 'default' | 'xl';
 // Type the main configuration object to ensure it matches our defined types.
 const configs: Record<Breakpoint, SvgConfig> = {
   default: { lineCount: 20, viewBox: '0 0 100 100' },
-  xl: { lineCount: 20, viewBox: '0 0 100 50' },
+  xl: { lineCount: 20, viewBox: '0 0 100 60' },
 };
 
 /**
@@ -27,8 +27,8 @@ export function useResponsiveSvgConfig(): SvgConfig {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 1280) {
+      console.log(screenWidth);
+      if (screenWidth > 1250) {
         setConfig(configs.xl);
       } else {
         setConfig(configs.default);
