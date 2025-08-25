@@ -62,9 +62,9 @@ const Punchline: React.FC<PunchlineProps> = ({ delay }) => {
   );
 
   return (
-    <h6 className="punchline font-handwriting h-[1em] text-lg md:text-2xl lg:text-3xl">
-      {/* {currentPunchline} */}
-    </h6>
+    <div className="relative h-[1em] max-w-full overflow-hidden pb-8">
+      <h6 className="punchline font-handwriting absolute w-full text-right text-lg md:text-2xl lg:text-3xl"></h6>
+    </div>
   );
 };
 

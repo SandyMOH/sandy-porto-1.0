@@ -10,9 +10,9 @@ const Hero: React.FC = () => {
   const delay = 4.5;
 
   return (
-    <section className="container mx-auto h-full px-4 py-12 sm:px-6 lg:px-8">
-      <div className="flex h-full items-center justify-center gap-4">
-        <div className="flex w-fit flex-col justify-center text-right">
+    <section className="container mx-auto h-full min-w-screen px-4 py-12 sm:px-6 lg:px-8">
+      <div className="flex h-full items-center justify-center">
+        <div className="flex w-fit flex-col justify-center gap-2 text-right">
           <Punchline delay={delay} />
           <Sandy />
           <div className="flex w-full justify-end gap-4">
