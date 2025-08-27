@@ -34,7 +34,7 @@ const About: React.FC = () => {
             (track.current.scrollWidth - document.documentElement.clientWidth),
           scrub: 1, // Smoothly link the animation to the scrollbar
           pin: true, // Pin the container while the animation is active
-          markers: true, // Set to true for debugging
+          markers: false, // Set to true for debugging
           invalidateOnRefresh: true, // Recalculate values on resize
         },
       });
@@ -57,7 +57,7 @@ const About: React.FC = () => {
           <Description />
         </div>
         <div className="min-w-screen">
-          <Circle scrollerRef={track} />
+          <Circle />
         </div>
         <div className="min-w-screen">
           <See />
