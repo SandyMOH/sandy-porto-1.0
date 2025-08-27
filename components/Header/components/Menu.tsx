@@ -33,12 +33,12 @@ const Menu: React.FC = () => {
             className="w-fit"
           />
         </li>
-        <li>
+        {/* <li>
           <a className="cursor-pointer md:hidden" onClick={() => goTo('')}>
             Get In Touch
           </a>
           <Button />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
