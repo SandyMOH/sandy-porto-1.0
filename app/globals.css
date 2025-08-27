@@ -32,12 +32,12 @@
   --text-mo-mobile--line-height: 1;
   --text-mo-mobile--letter-spacing: 0.125rem;
   --text-mo-mobile--font-weight: 700;
+}
 
-  --screens-sm: 640px;
-  --screens-md: 768px;
-  --screens-lg: 1024px;
-  --screens-xl: 1280px;
-  --screens-2xl: 1536px;
+@layer components {
+  .content-wrapper {
+    @apply mx-auto max-w-6xl px-4 md:px-8 lg:px-4;
+  }
 }
 
 body {
