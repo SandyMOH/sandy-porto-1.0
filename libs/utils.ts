@@ -6,12 +6,14 @@ export const addOverflowHidden = (id: string): void => {
 };
 
 export const removeComponent = (className: string): void => {
-  const elements = document.querySelectorAll(`.${className}`);
-  elements.forEach((element) => {
-    if (element instanceof HTMLElement) {
-      element.remove();
-    }
-  });
+  if (process.env.NODE_ENV === 'production') {
+    const elements = document.querySelectorAll(`.${className}`);
+    elements.forEach((element) => {
+      if (element instanceof HTMLElement) {
+        element.remove();
+      }
+    });
+  }
 };
 
 export const goToTop = (): void => {
