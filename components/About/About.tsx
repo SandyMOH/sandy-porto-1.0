@@ -56,8 +56,11 @@ const About: React.FC = () => {
         <div className="min-w-screen">
           <Description />
         </div>
-        <div className="min-w-screen">
-          <Circle />
+        <div className="min-w-[50vw] 2xl:min-w-[30vw]">
+          <Circle triggerRef={track} />
+        </div>
+        <div className="min-w-[80vw] 2xl:min-w-[60vw]">
+          <Run triggerRef={track} />
         </div>
         <div className="min-w-screen">
           <Description />
