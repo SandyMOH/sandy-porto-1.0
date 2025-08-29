@@ -10,13 +10,13 @@ import { useGSAP } from '@gsap/react';
 interface GradientCircleProps {
   circleId: string;
   rotate?: number;
-  triggerRef: React.RefObject<HTMLDivElement | null>; // ⬅️ ADD THIS PROP
+  triggerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const GradientCircle: React.FC<GradientCircleProps> = ({
   circleId,
   rotate = 45,
-  triggerRef, // ⬅️ USE THE PROP
+  triggerRef,
 }) => {
   const pathRef = useRef(null);
   useGSAP(() => {
@@ -26,10 +26,10 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
     const animation = gsap.to(`#${circleId}`, {
       scrollTrigger: {
         trigger: triggerRef.current,
-        start: 'center center', // now it waits until the circle is visible
-        end: '+=2500', // adjust based on how long you want it to animate
+        start: 'top top',
+        end: '+=300%',
         scrub: 1,
-        markers: true,
+        markers: false,
         containerAnimation:
           ScrollTrigger.getById('horizontalScroll')?.animation,
       },
@@ -164,7 +164,9 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
   );
 };
 
-const Circle: React.FC<{ containerRef?: any }> = ({ containerRef }) => {
+const Circle: React.FC<{
+  triggerRef?: React.RefObject<HTMLDivElement | null>;
+}> = ({ triggerRef }) => {
   const svgRef = useRef<HTMLDivElement>(null); // Ref for the trigger element
 
   return (
@@ -173,10 +175,18 @@ const Circle: React.FC<{ containerRef?: any }> = ({ containerRef }) => {
       className="relative grid h-96 w-full place-items-center items-center justify-center"
     >
       <div className="[grid-area:1/1]">
-        <GradientCircle circleId="circleOne" rotate={45} triggerRef={svgRef} />
+        <GradientCircle
+          circleId="circleOne"
+          rotate={45}
+          triggerRef={triggerRef}
+        />
       </div>
       <div className="[grid-area:1/1]">
-        <GradientCircle circleId="circleTwo" rotate={225} triggerRef={svgRef} />
+        <GradientCircle
+          circleId="circleTwo"
+          rotate={225}
+          triggerRef={triggerRef}
+        />
       </div>
     </div>
   );
