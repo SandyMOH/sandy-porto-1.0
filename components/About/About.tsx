@@ -27,6 +27,7 @@ const About: React.FC = () => {
           'px',
         ease: 'none', // Linear movement
         scrollTrigger: {
+          id: 'horizontalScroll',
           trigger: component.current, // The container is the trigger
           start: 'top top', // Pin when the top of the container hits the top of the viewport
           end: () =>
