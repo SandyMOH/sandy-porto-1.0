@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Description from './components/Description';
 import Circle from './components/Circle';
-import See from './components/See';
+import Run from './components/Run';
 
 const About: React.FC = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -60,7 +60,7 @@ const About: React.FC = () => {
           <Circle />
         </div>
         <div className="min-w-screen">
-          <See />
+          <Description />
         </div>
       </div>
     </section>
