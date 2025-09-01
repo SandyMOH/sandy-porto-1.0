@@ -10,6 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Description from './components/Description';
 import Circle from './components/Circle';
 import Run from './components/Run';
+import Triangle from './components/Triangle';
 
 const About: React.FC = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +30,7 @@ const About: React.FC = () => {
         scrollTrigger: {
           id: 'horizontalScroll',
           trigger: component.current, // The container is the trigger
-          start: 'top top', // Pin when the top of the container hits the top of the viewport
+          start: 'center center', // Pin when the top of the container hits the top of the viewport
           end: () =>
             '+=' +
             (track.current.scrollWidth - document.documentElement.clientWidth),
@@ -57,10 +58,10 @@ const About: React.FC = () => {
         <div className="min-w-screen">
           <Description />
         </div>
-        <div className="min-w-[50vw] 2xl:min-w-[30vw]">
+        <div className="min-w-[60vw] 2xl:min-w-[40vw]">
           <Circle triggerRef={track} />
         </div>
-        <div className="min-w-[80vw] 2xl:min-w-[60vw]">
+        <div className="min-w-[60vw] 2xl:min-w-[40vw]">
           <Run triggerRef={track} />
         </div>
 
