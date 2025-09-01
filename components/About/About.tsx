@@ -63,8 +63,9 @@ const About: React.FC = () => {
         <div className="min-w-[80vw] 2xl:min-w-[60vw]">
           <Run triggerRef={track} />
         </div>
-        <div className="min-w-screen">
-          <Description />
+
+        <div className="h-full w-full min-w-screen">
+          <Triangle />
         </div>
       </div>
     </section>
