@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col font-sans">
       <Header />
-      <main className="flex-1 pt-16 md:pt-8">
+      <main className="flex-1 overflow-x-hidden pt-16 md:pt-8">
         <Hero />
         <SubHero />
         <About />
