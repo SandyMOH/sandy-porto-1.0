@@ -24,9 +24,9 @@ const Run: React.FC<{
         scrollTrigger: {
           trigger: triggerRef.current,
           start: 'top+=60% top',
-          end: '+=300%',
+          end: '+=400%',
           scrub: 1,
-          markers: true,
+          markers: false,
         },
       }
     );
