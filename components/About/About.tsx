@@ -2,9 +2,8 @@
 
 import React from 'react';
 
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Description from './components/Description';
@@ -12,32 +11,26 @@ import Circle from './components/Circle';
 import Run from './components/Run';
 import Triangle from './components/Triangle';
 
-const About: React.FC = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  const component = useRef(null);
-  const track = useRef(null);
+export default function HorizontalScroll() {
+  const component = useRef<HTMLDivElement>(null);
+  const wrapper = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     let ctx = gsap.context(() => {
-      // The animation for the track
-      gsap.to(track.current, {
-        // We calculate the total distance to move the track horizontally.
-        // It's the full width of the track minus the width of the viewport.
+      gsap.to(wrapper.current, {
         x: () =>
-          -(track.current.scrollWidth - document.documentElement.clientWidth) +
-          'px',
-        ease: 'none', // Linear movement
+          -(
+            wrapper.current!.scrollWidth - document.documentElement.clientWidth
+          ) + 'px',
+        ease: 'none',
         scrollTrigger: {
-          id: 'horizontalScroll',
-          trigger: component.current, // The container is the trigger
-          start: 'center center', // Pin when the top of the container hits the top of the viewport
-          end: () =>
-            '+=' +
-            (track.current.scrollWidth - document.documentElement.clientWidth),
-          scrub: 1, // Smoothly link the animation to the scrollbar
-          pin: true, // Pin the container while the animation is active
-          markers: false, // Set to true for debugging
-          invalidateOnRefresh: true, // Recalculate values on resize
+          trigger: component.current,
+          pin: true,
+          scrub: 1,
+          end: () => '+=' + wrapper.current!.offsetWidth,
+          markers: false,
         },
       });
     }, component);
@@ -46,31 +39,53 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="about"
-      ref={component}
-      className="min-h-screen overflow-hidden py-20"
-    >
-      <h2 className="content-wrapper text-5xl font-bold md:text-6xl">
-        About Me
-      </h2>
-      <div ref={track} className="flex h-full items-center">
-        <div className="min-w-screen">
-          <Description />
-        </div>
-        <div className="min-w-[60vw] 2xl:min-w-[40vw]">
-          <Circle triggerRef={track} />
-        </div>
-        <div className="min-w-[60vw] 2xl:min-w-[40vw]">
-          <Run triggerRef={track} />
-        </div>
-
-        <div className="h-full w-full min-w-screen">
-          <Triangle />
+    <div>
+      <div ref={component} className="h-screen w-full overflow-x-hidden">
+        <div ref={wrapper} className="flex h-full flex-nowrap">
+          <div className="section flex h-full w-full min-w-screen items-center justify-center">
+            <Description />
+          </div>
+          <div className="section flex h-full w-full min-w-[60vw] items-center justify-center 2xl:min-w-[40vw]">
+            <Circle triggerRef={wrapper} />
+          </div>
+          <div className="section flex h-full w-full min-w-[60vw] items-center justify-center 2xl:min-w-[40vw]">
+            <Run triggerRef={wrapper} />
+          </div>
+          <div className="section flex h-full w-full min-w-screen items-center justify-center">
+            <Triangle />
+          </div>
         </div>
       </div>
-    </section>
-  );
-};
 
-export default About;
+      <div className="flex h-screen items-center justify-center bg-neutral-100">
+        <h1 className="text-4xl font-bold">Vertical Scrolling Resumes</h1>
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <section
+        id="about"
+        ref={component}
+        className="min-h-screen overflow-hidden py-20"
+      >
+        <h2 className="content-wrapper text-5xl font-bold md:text-6xl">
+          About Me
+        </h2>
+        <div ref={track} className="flex h-full items-center">
+          <div className="min-w-screen">
+            <Description />
+          </div>
+          <div className="min-w-[60vw] 2xl:min-w-[40vw]">
+            <Circle triggerRef={track} />
+          </div>
+          <div className="min-w-[60vw] 2xl:min-w-[40vw]">
+            <Run triggerRef={track} />
+          </div>
+          <div className="h-full w-full min-w-screen">
+            <Triangle />
+          </div>
+        </div>
+      </section> */
+}
