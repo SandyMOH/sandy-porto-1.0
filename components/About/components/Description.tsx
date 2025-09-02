@@ -12,19 +12,23 @@ const Description: React.FC = () => {
         height={130}
         className="hidden h-auto w-64 md:block lg:w-96"
       />
-      <div className="flex flex-col gap-4 text-center text-lg leading-relaxed md:text-right lg:text-2xl">
-        <p>
-          I don't just build applications; I craft complete digital experiences.
-          With 4 years of expertise spanning UI/UX design, full-stack
-          development, and infrastructure, I manage projects from the first
-          sketch to final deployment.
-        </p>
-        <p>
-          My background in both corporate and freelance settings has taught me
-          to merge creative vision with technical precision, resulting in
-          solutions that are both beautiful and powerful. Let's create something
-          exceptional together.
-        </p>
+
+      <div className="flex flex-col gap-4 text-right">
+        <h2 className="text-5xl font-bold md:text-6xl">About Me</h2>
+        <div className="flex flex-col gap-4 text-center text-lg leading-relaxed md:text-right lg:text-2xl">
+          <p>
+            I don't just build applications; I craft complete digital
+            experiences. With 4 years of expertise spanning UI/UX design,
+            full-stack development, and infrastructure, I manage projects from
+            the first sketch to final deployment.
+          </p>
+          <p>
+            My background in both corporate and freelance settings has taught me
+            to merge creative vision with technical precision, resulting in
+            solutions that are both beautiful and powerful. Let's create
+            something exceptional together.
+          </p>
+        </div>
       </div>
     </div>
   );
