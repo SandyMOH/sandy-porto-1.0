@@ -1,16 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
 const Run: React.FC<{
   triggerRef?: React.RefObject<HTMLDivElement | null>;
 }> = ({ triggerRef }) => {
-  useGSAP(() => {
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const animation = gsap.fromTo(
@@ -23,8 +22,8 @@ const Run: React.FC<{
         ease: 'none',
         scrollTrigger: {
           trigger: triggerRef.current,
-          start: 'top+=60% top',
-          end: '+=400%',
+          start: 'top+=10% top',
+          end: '+=200%',
           scrub: 1,
           markers: false,
         },
