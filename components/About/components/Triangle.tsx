@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 const Triangle = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -14,8 +14,8 @@ const Triangle = () => {
       0.1,
       1000
     );
-    camera.position.set(0, 1, 2);
-    camera.lookAt(0, -0.8, 0);
+    camera.position.set(0, 1, 2.35);
+    camera.lookAt(0, -0.25, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setClearColor(0x0e100f);
@@ -133,7 +133,7 @@ const Triangle = () => {
   return (
     <div className="relative h-full w-full">
       <div className="absolute z-10 flex h-full w-full items-center justify-center">
-        <div className="pt-80 text-center text-4xl">
+        <div className="pt-[500px] text-center text-4xl">
           <h3>I see differently</h3>
           <h3>people don't see what i see</h3>
         </div>
