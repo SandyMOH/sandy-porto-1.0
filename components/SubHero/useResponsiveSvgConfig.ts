@@ -27,7 +27,6 @@ export function useResponsiveSvgConfig(): SvgConfig {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      console.log(screenWidth);
       if (screenWidth > 1250) {
         setConfig(configs.xl);
       } else {
