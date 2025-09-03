@@ -5,8 +5,6 @@ import React, { useRef, useId } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-import { generateId, generateKebabCase } from '@/libs/utils';
-
 const HEIGHT = 20;
 const DURATION = 0.2;
 
