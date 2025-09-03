@@ -14,7 +14,6 @@ const AboutMobile: React.FC = () => {
       <div className="min-w-screen">
         <Triangle />
       </div>
-      <div></div>
     </section>
   );
 };
