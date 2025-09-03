@@ -32,6 +32,8 @@
   --text-mo-mobile--line-height: 1;
   --text-mo-mobile--letter-spacing: 0.125rem;
   --text-mo-mobile--font-weight: 700;
+
+  --breakpoint-xl2: 1250px;
 }
 
 @layer components {
