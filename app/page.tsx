@@ -2,6 +2,7 @@ import Hero from '../components/Hero/Hero';
 import Header from '../components/Header/Header';
 import SubHero from '../components/SubHero/SubHero';
 import About from '@/components/About/About';
+import AboutMobile from '@/components/About/AboutMobile';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <SubHero />
         <About />
+        <AboutMobile />
       </main>
     </div>
   );

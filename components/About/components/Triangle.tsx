@@ -3,6 +3,15 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
 
+const Text = () => {
+  return (
+    <div className="xl2:text-4xl text-center text-3xl">
+      <h3>I see differently</h3>
+      <h3>people don't see what i see</h3>
+    </div>
+  );
+};
+
 const Triangle = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
@@ -133,12 +142,13 @@ const Triangle = () => {
   return (
     <div className="relative h-full w-full">
       <div className="absolute z-10 flex h-full w-full items-center justify-center">
-        <div className="pt-[500px] text-center text-4xl">
-          <h3>I see differently</h3>
-          <h3>people don't see what i see</h3>
-        </div>
+        <div className="max-xl2:hidden pt-[500px]">
+          <Text />
+        </div>{' '}
+        {/* Corrected closing div tag */}
       </div>
-      <div ref={mountRef} className="h-full"></div>
+      <div ref={mountRef} className="xl2:h-full h-80"></div>
+      <Text />
     </div>
   );
 };

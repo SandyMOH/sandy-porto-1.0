@@ -13,9 +13,11 @@ const Description: React.FC = () => {
         className="hidden h-auto w-64 md:block lg:w-96"
       />
 
-      <div className="flex flex-col gap-4 text-right">
-        <h2 className="text-5xl font-bold md:text-6xl">About Me</h2>
-        <div className="flex flex-col gap-4 text-center text-lg leading-relaxed md:text-right lg:text-2xl">
+      <div className="flex flex-col gap-4">
+        <h2 className="xl2:text-right max-xl2:pb-4 text-left text-5xl font-bold md:text-6xl">
+          About Me
+        </h2>
+        <div className="xl2:text-2xl flex flex-col gap-4 text-center text-lg leading-relaxed md:text-right">
           <p>
             I don't just build applications; I craft complete digital
             experiences. With 4 years of expertise spanning UI/UX design,
