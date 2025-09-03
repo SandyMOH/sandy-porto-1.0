@@ -28,7 +28,7 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
         start: 'top top',
         end: '+=300%',
         scrub: 1,
-        markers: true,
+        markers: false,
         containerAnimation:
           ScrollTrigger.getById('horizontalScroll')?.animation,
       },
