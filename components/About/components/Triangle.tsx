@@ -133,12 +133,12 @@ const Triangle = () => {
   return (
     <div className="relative flex h-full w-full flex-col-reverse">
       <div className="xl2:absolute xl2:pt-[500px] z-10 flex h-full w-full items-center justify-center">
-        <div className="xl2:text-4xl text-center text-3xl">
+        <div className="text-center text-3xl lg:text-4xl">
           <h3>I see differently</h3>
           <h3>people don't see what i see</h3>
         </div>
       </div>
-      <div ref={mountRef} className="xl2:h-full h-64"></div>
+      <div ref={mountRef} className="xl2:h-full h-64 md:h-[400px]"></div>
     </div>
   );
 };

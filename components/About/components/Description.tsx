@@ -4,20 +4,20 @@ import Image from 'next/image';
 
 const Description: React.FC = () => {
   return (
-    <div className="content-wrapper grid grid-cols-1 items-center gap-20 md:grid-cols-[max-content_1fr]">
+    <div className="content-wrapper grid grid-cols-1 items-center gap-20 lg:grid-cols-[max-content_1fr]">
       <Image
         src={'/images/photo/tunnel.jpg'}
         alt="sandy walk"
         width={350}
         height={130}
-        className="hidden h-auto w-64 md:block lg:w-96"
+        className="hidden h-auto w-64 lg:block lg:w-96"
       />
 
       <div className="flex flex-col gap-4">
-        <h2 className="xl2:text-right max-xl2:pb-4 text-left text-5xl font-bold md:text-6xl">
+        <h2 className="text-left text-5xl font-bold lg:pb-4 lg:text-right lg:text-6xl">
           About Me
         </h2>
-        <div className="xl2:text-2xl flex flex-col gap-4 text-center text-lg leading-relaxed md:text-right">
+        <div className="flex flex-col gap-4 text-center text-lg leading-relaxed lg:text-right lg:text-2xl">
           <p>
             I don't just build applications; I craft complete digital
             experiences. With 4 years of expertise spanning UI/UX design,
