@@ -138,7 +138,7 @@ const Triangle = () => {
           <h3>people don't see what i see</h3>
         </div>
       </div>
-      <div ref={mountRef} className="xl2:h-full h-64 md:h-[400px]"></div>
+      <div ref={mountRef} className="h-64 md:h-[400px] lg:h-full"></div>
     </div>
   );
 };
