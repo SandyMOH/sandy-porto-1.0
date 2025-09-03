@@ -12,7 +12,6 @@ export default function Home() {
         <Hero />
         <SubHero />
         <About />
-        <AboutMobile />
       </main>
     </div>
   );
