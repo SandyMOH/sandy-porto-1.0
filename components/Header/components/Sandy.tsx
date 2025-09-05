@@ -9,7 +9,7 @@ const Sandy: React.FC = () => {
       firstText="Sandy Mo."
       secondText="Hello There"
       onClick={goToTop}
-      className="w-20"
+      className="w-24"
     />
   );
 };
