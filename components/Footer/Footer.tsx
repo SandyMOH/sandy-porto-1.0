@@ -3,7 +3,7 @@
 import React from 'react';
 
 import HoverChange from '@/components/ui/HoverChange';
-import Button from '@/components/ui/Button';
+import Planet from './Planet';
 
 import { goToTop } from '@/libs/utils';
 
@@ -82,15 +82,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
           {/* Column 3: Image */}
-          <div className="order-last h-48 w-full rounded-lg bg-gray-300 md:order-none">
-            {' '}
-            {/* You can place an <img> tag here or use a background image */}
-            {/* For example: */}
-            {/* <img 
-        src="https://via.placeholder.com/400x200" 
-        alt="Placeholder" 
-        className="w-full h-full object-cover rounded-lg"
-      /> */}
+          <div className="order-last h-48 w-full rounded-lg md:order-none">
+            <Planet />
           </div>
         </div>
       </div>
