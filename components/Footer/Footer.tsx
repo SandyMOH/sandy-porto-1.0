@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
   };
   return (
     <footer className="w-full">
-      <div className="mx-auto max-w-7xl px-4 py-3">
+      <div className="mx-auto max-w-[2300px] px-4 py-3">
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-24">
           <div className="grid grid-cols-[auto_auto] gap-12 md:gap-24">
             <div>
