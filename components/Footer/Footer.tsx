@@ -48,29 +48,29 @@ const Footer: React.FC = () => {
             <div>
               <h6 className="pb-2 text-xl font-semibold">Social</h6>
               <ul className="flex flex-col gap-2">
-                  <li className="h-fit w-fit">
-                    <HoverChange
-                      firstText="LinkedIn"
-                      secondText="LinkedIn"
+                <li className="h-fit w-fit">
+                  <HoverChange
+                    firstText="LinkedIn"
+                    secondText="LinkedIn"
                     link="https://github.com/SandyMOH"
-                      className="w-fit text-lg"
-                    />
-                  </li>
-                  <li className="h-fit w-fit">
-                    <HoverChange
-                      firstText="GitHub"
-                      secondText="GitHub"
+                    className="w-fit text-lg"
+                  />
+                </li>
+                <li className="h-fit w-fit">
+                  <HoverChange
+                    firstText="GitHub"
+                    secondText="GitHub"
                     link="https://www.linkedin.com/in/sandy-mohammad-379ba111a/"
-                      className="w-fit text-lg"
-                    />
-                  </li>
-                  <li className="h-fit w-fit">
-                    <HoverChange
-                      firstText="Behance"
-                      secondText="Behance"
+                    className="w-fit text-lg"
+                  />
+                </li>
+                <li className="h-fit w-fit">
+                  <HoverChange
+                    firstText="Behance"
+                    secondText="Behance"
                     link="https://www.behance.net/sandymoh"
-                      className="w-fit text-lg"
-                    />
+                    className="w-fit text-lg"
+                  />
                 </li>
               </ul>
             </div>
@@ -80,8 +80,11 @@ const Footer: React.FC = () => {
             <Planet />
           </div>
         </div>
+
+        <h6 className="mt-6 text-center">
+          © {year} Sandy Mo. All rights reserved.
+        </h6>
       </div>
-      <h6 className="text-center">© {year} Sandy Mo. All rights reserved.</h6>
     </footer>
   );
 };
