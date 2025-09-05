@@ -5,14 +5,17 @@ import React, { useRef, useId } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
+import Link from 'next/link';
+
 const HEIGHT = 20;
 const DURATION = 0.2;
 
 interface HoverChangeProps {
   firstText: string;
   secondText: string;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
+  link?: string;
 }
 
 const HoverChange: React.FC<HoverChangeProps> = ({
@@ -20,6 +23,7 @@ const HoverChange: React.FC<HoverChangeProps> = ({
   secondText,
   onClick = () => {},
   className,
+  link,
 }) => {
   const boxRef = useRef(null);
   let componetId = useId();
@@ -71,21 +75,42 @@ const HoverChange: React.FC<HoverChangeProps> = ({
   }, []);
 
   return (
-    <a
-      ref={boxRef}
-      className={`${className} relative h-fit cursor-pointer overflow-hidden text-center`}
-      onClick={onClick}
-    >
-      <div id={firstTexId} className="text-center">
-        {firstText}
-      </div>
-      <div
-        id={secondTextId}
-        className="absolute top-0 left-0 w-full text-center"
-      >
-        {secondText}
-      </div>
-    </a>
+    <>
+      {link ? (
+        <Link
+          href={link}
+          target="_blank"
+          ref={boxRef}
+          className={`${className} relative h-fit cursor-pointer overflow-hidden text-center`}
+        >
+          <div id={firstTexId} className="text-center">
+            {firstText}
+          </div>
+          <div
+            id={secondTextId}
+            className="absolute top-0 left-0 w-full text-center"
+          >
+            {secondText}
+          </div>
+        </Link>
+      ) : (
+        <div
+          ref={boxRef}
+          className={`${className} relative h-fit cursor-pointer overflow-hidden text-center`}
+          onClick={onClick}
+        >
+          <div id={firstTexId} className="text-center">
+            {firstText}
+          </div>
+          <div
+            id={secondTextId}
+            className="absolute top-0 left-0 w-full text-center"
+          >
+            {secondText}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
