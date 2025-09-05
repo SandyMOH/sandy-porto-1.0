@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 const Triangle = () => {
@@ -65,6 +65,8 @@ const Triangle = () => {
     // Add wireframe edges
     const edges = new THREE.EdgesGeometry(geometry);
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0xe66fba });
+    lineMaterial.opacity = 0.2;
+    lineMaterial.transparent = true;
     const wireframe = new THREE.LineSegments(edges, lineMaterial);
     triangle.add(wireframe);
 
