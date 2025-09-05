@@ -146,9 +146,19 @@ const Planet: React.FC = () => {
     // renderer.domElement.addEventListener('mouseup', onMouseUp);
 
     let frameId: number;
+    let zRotationValue = 0.00025;
+    const zLimit = 0.05;
+
     const animate = () => {
       frameId = requestAnimationFrame(animate);
+
       ball.rotation.y += 0.0025;
+
+      ball.rotation.z += zRotationValue;
+
+      if (ball.rotation.z > zLimit || ball.rotation.z < -zLimit) {
+        zRotationValue *= -1;
+      }
 
       renderer.render(scene, camera);
     };
