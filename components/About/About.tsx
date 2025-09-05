@@ -9,5 +9,9 @@ import AboutDesktop from './AboutDesktop';
 export default function About() {
   const isDesktop = useMediaQuery('(min-width: 1250px)');
 
-  return <section>{isDesktop ? <AboutDesktop /> : <AboutMobile />}</section>;
+  return (
+    <section id="about">
+      {isDesktop ? <AboutDesktop /> : <AboutMobile />}
+    </section>
+  );
 }
