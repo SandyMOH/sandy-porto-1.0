@@ -24,14 +24,14 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-24">
           <div className="grid grid-cols-[auto_auto] gap-12 md:gap-24">
             <div>
-              <h6 className="pb-2 text-xl font-semibold">Menu</h6>
+              <h6 className="pb-2 text-lg font-semibold md:text-xl">Menu</h6>
               <ul className="flex flex-col gap-2">
                 <li className="h-fit w-fit">
                   <HoverChange
                     firstText="Home"
                     secondText="Home"
                     onClick={goToTop}
-                    className="w-fit text-lg"
+                    className="w-fit md:text-lg"
                   />
                 </li>
                 <li className="h-fit w-fit">
@@ -39,12 +39,11 @@ const Footer: React.FC = () => {
                     firstText="About"
                     secondText="About"
                     onClick={() => goTo('about')}
-                    className="w-fit text-lg"
+                    className="w-fit md:text-lg"
                   />
                 </li>
               </ul>
             </div>
-            {/* Column 2: Social */}
             <div>
               <h6 className="pb-2 text-xl font-semibold">Social</h6>
               <ul className="flex flex-col gap-2">
@@ -53,7 +52,7 @@ const Footer: React.FC = () => {
                     firstText="LinkedIn"
                     secondText="LinkedIn"
                     link="https://github.com/SandyMOH"
-                    className="w-fit text-lg"
+                    className="w-fit md:text-lg"
                   />
                 </li>
                 <li className="h-fit w-fit">
@@ -61,7 +60,7 @@ const Footer: React.FC = () => {
                     firstText="GitHub"
                     secondText="GitHub"
                     link="https://www.linkedin.com/in/sandy-mohammad-379ba111a/"
-                    className="w-fit text-lg"
+                    className="w-fit md:text-lg"
                   />
                 </li>
                 <li className="h-fit w-fit">
@@ -69,7 +68,7 @@ const Footer: React.FC = () => {
                     firstText="Behance"
                     secondText="Behance"
                     link="https://www.behance.net/sandymoh"
-                    className="w-fit text-lg"
+                    className="w-fit md:text-lg"
                   />
                 </li>
               </ul>
@@ -81,7 +80,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <h6 className="mt-6 text-center">
+        <h6 className="mt-6 text-center md:text-lg">
           © {year} Sandy Mo. All rights reserved.
         </h6>
       </div>
