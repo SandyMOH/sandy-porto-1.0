@@ -48,35 +48,29 @@ const Footer: React.FC = () => {
             <div>
               <h6 className="pb-2 text-xl font-semibold">Social</h6>
               <ul className="flex flex-col gap-2">
-                <li className="w-fit">
                   <li className="h-fit w-fit">
                     <HoverChange
                       firstText="LinkedIn"
                       secondText="LinkedIn"
-                      onClick={goToTop}
+                    link="https://github.com/SandyMOH"
                       className="w-fit text-lg"
                     />
                   </li>
-                </li>
-                <li className="w-fit">
                   <li className="h-fit w-fit">
                     <HoverChange
                       firstText="GitHub"
                       secondText="GitHub"
-                      onClick={goToTop}
+                    link="https://www.linkedin.com/in/sandy-mohammad-379ba111a/"
                       className="w-fit text-lg"
                     />
                   </li>
-                </li>
-                <li className="w-fit">
                   <li className="h-fit w-fit">
                     <HoverChange
                       firstText="Behance"
                       secondText="Behance"
-                      onClick={goToTop}
+                    link="https://www.behance.net/sandymoh"
                       className="w-fit text-lg"
                     />
-                  </li>
                 </li>
               </ul>
             </div>
