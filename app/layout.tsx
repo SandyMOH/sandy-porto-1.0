@@ -3,6 +3,7 @@ import { Syne, Architects_Daughter } from 'next/font/google';
 import './globals.css';
 import ZoomManager from '@/components/ZoomManager';
 import ScrollToTopManager from '@/components/ScrollToTopManager';
+import { Providers } from './provider';
 
 const fontSyne = Syne({
   subsets: ['latin'],
@@ -39,13 +40,15 @@ export default function RootLayout({
       <body
         className={`${fontSyne.variable} ${fontArchitectsDaughter.variable} antialiased`}
       >
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <ZoomManager />
-            <ScrollToTopManager />
-          </>
-        )}
-        {children}
+        <Providers>
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <ZoomManager />
+              <ScrollToTopManager />
+            </>
+          )}
+          {children}
+        </Providers>
       </body>
     </html>
   );

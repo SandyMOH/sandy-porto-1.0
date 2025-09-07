@@ -3,8 +3,6 @@
 import React, { useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 
 interface PunchlineProps {
   delay: number;
@@ -12,8 +10,6 @@ interface PunchlineProps {
 
 const Punchline: React.FC<PunchlineProps> = ({ delay }) => {
   const [animationDelay, setAnimationDelay] = useState(delay);
-
-  gsap.registerPlugin(SplitText, ScrambleTextPlugin);
 
   const timeline = gsap.timeline({
     delay: animationDelay,

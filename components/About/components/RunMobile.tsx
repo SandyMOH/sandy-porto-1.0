@@ -4,13 +4,10 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Run: React.FC = () => {
   const runRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: runRef.current,

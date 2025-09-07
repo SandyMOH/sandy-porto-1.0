@@ -4,14 +4,11 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Run: React.FC<{
   triggerRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ triggerRef }) => {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const animation = gsap.fromTo(
       '#run-text',
       {

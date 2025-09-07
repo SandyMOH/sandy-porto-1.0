@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Description from './components/Description';
 import Circle from './components/Circle';
@@ -36,8 +35,6 @@ export default function HorizontalScroll() {
   // Run GSAP only after visible
   useEffect(() => {
     if (!isVisible || !wrapper.current) return;
-
-    gsap.registerPlugin(ScrollTrigger);
 
     let ctx = gsap.context(() => {
       gsap.to(wrapper.current, {

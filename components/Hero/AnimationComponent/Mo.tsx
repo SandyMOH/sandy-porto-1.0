@@ -12,7 +12,6 @@ const HEIGHT_GAP = 145;
 
 const Mo: React.FC = () => {
   useGSAP(() => {
-    gsap.registerPlugin(SplitText);
     const mo100 = new SplitText('#mo-100', { type: 'chars' });
     const mo100Chars = mo100.chars;
 

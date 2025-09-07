@@ -3,8 +3,6 @@
 import React, { useRef, useEffect } from 'react';
 
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 interface GradientCircleProps {
   circleId: string;
@@ -19,9 +17,6 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
 }) => {
   const pathRef = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(MotionPathPlugin);
-
     const animation = gsap.to(`#${circleId}`, {
       scrollTrigger: {
         trigger: triggerRef.current,
@@ -29,8 +24,6 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
         end: '+=300%',
         scrub: 1,
         markers: false,
-        containerAnimation:
-          ScrollTrigger.getById('horizontalScroll')?.animation,
       },
       ease: 'none',
       motionPath: {
