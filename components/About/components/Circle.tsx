@@ -164,7 +164,7 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
 };
 
 const Circle: React.FC<{
-  triggerRef?: React.RefObject<HTMLDivElement | null>;
+  triggerRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ triggerRef }) => {
   const svgRef = useRef<HTMLDivElement>(null); // Ref for the trigger element
 
