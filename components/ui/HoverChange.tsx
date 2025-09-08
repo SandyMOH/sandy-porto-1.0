@@ -7,6 +7,8 @@ import { useGSAP } from '@gsap/react';
 
 import Link from 'next/link';
 
+import useCounterStore from '@/store/counterStore';
+
 const HEIGHT = 20;
 const DURATION = 0.2;
 
@@ -25,6 +27,8 @@ const HoverChange: React.FC<HoverChangeProps> = ({
   className,
   link,
 }) => {
+  const { increment } = useCounterStore();
+
   const boxRef = useRef(null);
   let componetId = useId();
   let firstTexId = `nav-first-${componetId}`;
@@ -65,6 +69,8 @@ const HoverChange: React.FC<HoverChangeProps> = ({
 
       boxElement.addEventListener('mouseenter', handleMouseEnter);
       boxElement.addEventListener('mouseleave', handleMouseLeave);
+
+      increment();
 
       // Cleanup function to remove event listeners
       return () => {
