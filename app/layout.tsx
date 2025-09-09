@@ -3,6 +3,7 @@ import { Syne, Architects_Daughter } from 'next/font/google';
 import './globals.css';
 import ZoomManager from '@/components/ZoomManager';
 import ScrollToTopManager from '@/components/ScrollToTopManager';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from './provider';
 
 const fontSyne = Syne({
@@ -45,6 +46,7 @@ export default function RootLayout({
             <>
               <ZoomManager />
               <ScrollToTopManager />
+              <SpeedInsights />
             </>
           )}
           {children}
