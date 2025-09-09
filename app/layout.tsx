@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Syne, Architects_Daughter } from 'next/font/google';
 import './globals.css';
-import ZoomManager from '@/components/ZoomManager';
-import ScrollToTopManager from '@/components/ScrollToTopManager';
+import ZoomManager from '@/components/Manager/ZoomManager';
+import ScrollToTopManager from '@/components/Manager/ScrollToTopManager';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from './provider';
 
