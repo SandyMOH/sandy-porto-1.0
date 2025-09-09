@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 
 const ScrollToTopManager = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
   }, []);
 
   return null;
