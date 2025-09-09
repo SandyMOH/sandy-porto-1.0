@@ -3,6 +3,7 @@ import { Syne, Architects_Daughter } from 'next/font/google';
 import './globals.css';
 import ZoomManager from '@/components/Manager/ZoomManager';
 import ScrollToTopManager from '@/components/Manager/ScrollToTopManager';
+import ReloadResizeManager from '@/components/Manager/ReloadResizeManager';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from './provider';
 
@@ -47,6 +48,7 @@ export default function RootLayout({
               <ZoomManager />
               <ScrollToTopManager />
               <SpeedInsights />
+              <ReloadResizeManager />
             </>
           )}
           {children}
