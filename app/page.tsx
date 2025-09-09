@@ -2,6 +2,7 @@ import Hero from '../components/Hero/Hero';
 import Header from '../components/Header/Header';
 import SubHero from '../components/SubHero/SubHero';
 import About from '@/components/About/About';
+import ContactMe from '@/components/ContactMe/ContactMe';
 import Footer from '@/components/Footer/Footer';
 
 export default function Home() {

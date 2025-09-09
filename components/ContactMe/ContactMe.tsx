@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import Button from '../ui/Button';
 
-const Loading: React.FC = () => {
+const ContactMe: React.FC = () => {
   return (
     <section
       id="contact"
@@ -31,4 +31,4 @@ const Loading: React.FC = () => {
   );
 };
 
-export default Loading;
+export default ContactMe;
