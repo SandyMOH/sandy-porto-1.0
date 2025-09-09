@@ -2,18 +2,9 @@
 import HoverChange from '@/components/ui/HoverChange';
 import Button from '@/components/ui/Button';
 
-import { goToTop } from '@/libs/utils';
+import { goToTop, goTo } from '@/libs/utils';
 
 const Menu: React.FC = () => {
-  const goTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  };
-
   return (
     <nav className="flex-1">
       <ul className="flex flex-col items-end justify-end gap-2 md:flex-row md:items-center md:gap-6">
@@ -37,7 +28,7 @@ const Menu: React.FC = () => {
           <HoverChange
             firstText="Contact"
             secondText="Contact"
-            onClick={() => goTo('contact')}
+            onClick={() => goTo('contact', 'center')}
             className="w-fit"
           />
         </li>

@@ -22,3 +22,17 @@ export const goToTop = (): void => {
     behavior: 'smooth',
   });
 };
+
+export const goTo = (
+  id: string,
+  position: 'start' | 'center' | 'end' = 'start'
+) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      inline: position,
+      block: position,
+    });
+  }
+};

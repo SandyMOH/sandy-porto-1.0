@@ -6,19 +6,11 @@ import Link from 'next/link';
 import HoverChange from '@/components/ui/HoverChange';
 import Planet from './Planet';
 
-import { goToTop } from '@/libs/utils';
+import { goToTop, goTo } from '@/libs/utils';
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
-  const goTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  };
   return (
     <footer className="w-full">
       <div className="mx-auto max-w-[2300px] px-4 py-3">
@@ -47,7 +39,7 @@ const Footer: React.FC = () => {
                   <HoverChange
                     firstText="Contact"
                     secondText="Contact"
-                    onClick={() => goTo('contact')}
+                    onClick={() => goTo('contact', 'center')}
                     className="w-fit md:text-lg"
                   />
                 </li>
