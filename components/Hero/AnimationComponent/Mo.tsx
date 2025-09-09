@@ -21,6 +21,7 @@ const Mo: React.FC = () => {
     const timeline = gsap.timeline();
 
     timeline
+      .set('#mo-section', { autoAlpha: 1 })
       .set(mo100Chars, {
         y: HEIGHT_GAP,
       })
@@ -84,7 +85,7 @@ const Mo: React.FC = () => {
   return (
     <div
       id="mo-section"
-      className="text-mo-mobile md:text-mo relative h-fit w-fit overflow-hidden"
+      className="text-mo-mobile md:text-mo invisible relative h-fit w-fit overflow-hidden"
     >
       <h2 id="mo-text" className="h-fit w-full">
         Mo.

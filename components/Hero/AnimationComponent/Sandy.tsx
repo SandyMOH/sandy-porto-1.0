@@ -21,6 +21,7 @@ const Sandy: React.FC = () => {
     const timelineSandy = gsap.timeline();
 
     timelineSandy
+      .set('#sandy-section', { autoAlpha: 1 })
       .set('.slide-section', {
         opacity: 0,
       })
@@ -219,7 +220,10 @@ const Sandy: React.FC = () => {
   };
 
   return (
-    <div className="text-sandy-mobile md:text-sandy flex">
+    <div
+      id="sandy-section"
+      className="text-sandy-mobile md:text-sandy invisible flex"
+    >
       <div id="s" className="sandy">
         S
       </div>

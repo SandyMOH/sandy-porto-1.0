@@ -21,16 +21,21 @@ const Services: React.FC<ServicesI> = ({ delay }) => {
       delay: delay,
     });
 
-    timeline.from('.service-item', {
-      opacity: 0,
-      x: -20,
-      ease: 'power3.out',
-      stagger: 0.1,
-    });
+    timeline
+      .set('#mo-services-section', { autoAlpha: 1 })
+      .from('.service-item', {
+        opacity: 0,
+        x: -20,
+        ease: 'power3.out',
+        stagger: 0.1,
+      });
   }, []);
 
   return (
-    <div className="flex h-40 flex-col justify-end gap-1 md:h-48 lg:h-60">
+    <div
+      id="mo-services-section"
+      className="invisible flex h-40 flex-col justify-end gap-1 md:h-48 lg:h-60"
+    >
       {services.map((service, index) => (
         <h6
           key={index}
