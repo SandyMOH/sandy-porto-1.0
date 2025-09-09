@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import HoverChange from '@/components/ui/HoverChange';
 import Planet from './Planet';
@@ -42,6 +43,14 @@ const Footer: React.FC = () => {
                     className="w-fit md:text-lg"
                   />
                 </li>
+                <li className="h-fit w-fit">
+                  <HoverChange
+                    firstText="Contact"
+                    secondText="Contact"
+                    onClick={() => goTo('contact')}
+                    className="w-fit md:text-lg"
+                  />
+                </li>
               </ul>
             </div>
             <div>
@@ -80,9 +89,18 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <h6 className="mt-6 text-center md:text-lg">
+        {/* <h6 className="mt-6 text-center md:text-lg">
           © {year} Sandy Mo. All rights reserved.
-        </h6>
+        </h6> */}
+        <div className="mt-6 flex flex-col max-md:gap-8 max-md:text-center md:flex-row md:items-center md:justify-between md:text-lg">
+          <div className="flex flex-col">
+            <h6>Based in Indonesia Working worldwide</h6>
+            <Link href="mailto:sandymo.dev@gmail.com" target="_blank">
+              sandymo.dev@gmail.com
+            </Link>
+          </div>
+          <h6 className="">© {year} Sandy Mo. All rights reserved.</h6>
+        </div>
       </div>
     </footer>
   );
