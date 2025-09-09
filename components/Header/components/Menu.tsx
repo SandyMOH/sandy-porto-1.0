@@ -33,6 +33,14 @@ const Menu: React.FC = () => {
             className="w-fit"
           />
         </li>
+        <li>
+          <HoverChange
+            firstText="Contact"
+            secondText="Contact"
+            onClick={() => goTo('contact')}
+            className="w-fit"
+          />
+        </li>
         {/* <li>
           <a className="cursor-pointer md:hidden" onClick={() => goTo('')}>
             Get In Touch
