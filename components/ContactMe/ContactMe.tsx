@@ -21,11 +21,9 @@ const ContactMe: React.FC = () => {
         <h2 className="text-center text-4xl lg:text-5xl">
           Let's Discuss Your Vision
         </h2>
-        <Button size="large">
-          <Link href="mailto:sandymo.dev@gmail.com" target="_blank">
-            Contact Me
-          </Link>
-        </Button>
+        <Link href="mailto:sandymo.dev@gmail.com" target="_blank">
+          <Button>Contact Me</Button>
+        </Link>
       </div>
     </section>
   );
