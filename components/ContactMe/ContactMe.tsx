@@ -8,7 +8,7 @@ const ContactMe: React.FC = () => {
   return (
     <section
       id="contact"
-      className="content-wrapper flex min-h-[80vh] flex-col items-center justify-center gap-10 py-28 lg:min-h-screen"
+      className="content-wrapper xl2:min-h-[80vh] flex flex-col items-center justify-center gap-10 py-28"
     >
       <Image
         src="/images/photo/walk-hill.jpg"
