@@ -1,32 +1,36 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Run: React.FC = () => {
   const runRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: runRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        markers: false,
-      },
-    });
+  useGSAP(
+    () => {
+      if (!runRef.current) return;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: runRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          markers: false,
+          invalidateOnRefresh: true,
+        },
+      });
 
-    tl.fromTo('#run-text', { x: 400 }, { x: -400, ease: 'none' });
+      tl.fromTo('#run-text', { x: 400 }, { x: -400, ease: 'none' });
 
-    tl.fromTo('#run-image', { x: -400 }, { x: 400, ease: 'none' }, '<');
-
-    // Cleanup function
-    return () => {
-      tl.kill();
-    };
-  }, [runRef]);
+      tl.fromTo('#run-image', { x: -400 }, { x: 400, ease: 'none' }, '<');
+    },
+    {
+      dependencies: [runRef.current],
+      revertOnUpdate: true,
+    }
+  );
 
   return (
     <div

@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 import Description from './components/Description';
 import Circle from './components/Circle';
@@ -33,28 +34,36 @@ export default function HorizontalScroll() {
   }, []);
 
   // Run GSAP only after visible
-  useEffect(() => {
-    if (!isVisible || !wrapper.current) return;
+  useGSAP(
+    () => {
+      if (!isVisible || !wrapper.current) return;
 
-    let ctx = gsap.context(() => {
-      gsap.to(wrapper.current, {
-        x: () =>
-          -(
-            wrapper.current!.scrollWidth - document.documentElement.clientWidth
-          ) + 'px',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: component.current,
-          pin: true,
-          scrub: 1,
-          end: () => '+=' + wrapper.current!.offsetWidth,
-          markers: false,
-        },
-      });
-    }, component);
+      let ctx = gsap.context(() => {
+        gsap.to(wrapper.current, {
+          x: () =>
+            -(
+              wrapper.current!.scrollWidth -
+              document.documentElement.clientWidth
+            ) + 'px',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: component.current,
+            pin: true,
+            scrub: 1,
+            end: () => '+=' + wrapper.current!.offsetWidth,
+            markers: false,
+            invalidateOnRefresh: false,
+          },
+        });
+      }, component);
 
-    return () => ctx.revert();
-  }, [isVisible]);
+      return () => ctx.revert();
+    },
+    {
+      dependencies: [component.current, wrapper.current, isVisible],
+      revertOnUpdate: true,
+    }
+  );
 
   return (
     <div

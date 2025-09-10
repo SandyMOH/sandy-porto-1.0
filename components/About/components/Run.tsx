@@ -1,37 +1,41 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Run: React.FC<{
   triggerRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ triggerRef }) => {
-  useEffect(() => {
-    const animation = gsap.fromTo(
-      '#run-text',
-      {
-        x: 400, // starting position
-      },
-      {
-        x: -400, // ending position
-        ease: 'none',
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: 'top+=10% top',
-          end: '+=200%',
-          scrub: 1,
-          markers: false,
+  useGSAP(
+    () => {
+      if (!triggerRef.current) return;
+      gsap.fromTo(
+        '#run-text',
+        {
+          x: 400, // starting position
         },
-      }
-    );
-
-    // Cleanup function
-    return () => {
-      animation.kill();
-    };
-  }, [triggerRef]);
+        {
+          x: -400, // ending position
+          ease: 'none',
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: 'top+=10% top',
+            end: '+=200%',
+            scrub: 1,
+            markers: false,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    },
+    {
+      dependencies: [triggerRef.current],
+      revertOnUpdate: true,
+    }
+  );
 
   return (
     <div className="content-wrapper relative flex items-center justify-center">

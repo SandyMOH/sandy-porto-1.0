@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 interface GradientCircleProps {
   circleId: string;
@@ -16,31 +17,35 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
   triggerRef,
 }) => {
   const pathRef = useRef(null);
-  useEffect(() => {
-    const animation = gsap.to(`#${circleId}`, {
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        markers: false,
-      },
-      ease: 'none',
-      motionPath: {
-        path: pathRef.current as unknown as SVGPathElement,
-        align: pathRef.current as unknown as SVGPathElement,
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-        start: 1,
-        end: 0,
-      },
-    });
+  useGSAP(
+    () => {
+      if (!triggerRef.current) return;
 
-    // Cleanup function
-    return () => {
-      animation.kill();
-    };
-  }, [triggerRef]);
+      const animation = gsap.to(`#${circleId}`, {
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          markers: false,
+          invalidateOnRefresh: true,
+        },
+        ease: 'none',
+        motionPath: {
+          path: pathRef.current as unknown as SVGPathElement,
+          align: pathRef.current as unknown as SVGPathElement,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+          start: 1,
+          end: 0,
+        },
+      });
+    },
+    {
+      dependencies: [triggerRef.current, pathRef.current],
+      revertOnUpdate: true,
+    }
+  );
 
   return (
     <div className="relative grid place-items-center">

@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useResponsiveSvgConfig } from './useResponsiveSvgConfig';
 import Image from 'next/image';
 
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { Observer } from 'gsap/Observer';
 
 // Register plugin once globally
@@ -29,49 +30,45 @@ const ScrollWaves: React.FC = () => {
 
   const { lineCount, viewBox } = useResponsiveSvgConfig();
 
-  useEffect(() => {
-    if (!mainRef.current) return;
+  useGSAP(
+    () => {
+      const lines = gsap.utils.toArray<SVGPolylineElement>('polyline');
 
-    const lines = gsap.utils.toArray<SVGPolylineElement>(
-      mainRef.current.querySelectorAll('polyline')
-    );
+      const setPoints = (amp = 0) => {
+        let step = 0;
+        const newPoints: number[] = [];
+        for (let x = 0; x <= width; x++) {
+          x < width / 2 ? step++ : step--;
+          const y =
+            (step / damp) * amp * Math.sin(((x + drift.current) / damp) * freq);
+          newPoints.push(x, y);
+        }
+        points.current = newPoints.join(' ');
+      };
 
-    // Wave calculation
-    const setPoints = (amp = 0) => {
-      let step = 0;
-      const newPoints: number[] = [];
+      const updatePolylinePoints = () => {
+        lines.forEach((line) => {
+          line.setAttribute('points', points.current);
+        });
+      };
 
-      for (let x = 0; x <= width; x++) {
-        x < width / 2 ? step++ : step--;
-        const y =
-          (step / damp) * amp * Math.sin(((x + drift.current) / damp) * freq);
-        newPoints.push(x, y);
-      }
-      points.current = newPoints.join(' ');
-    };
-
-    // Update DOM
-    const updatePolylinePoints = () => {
-      lines.forEach((line) => {
-        line.setAttribute('points', points.current);
+      const obs = Observer.create({
+        type: 'wheel,touch,scroll,pointer',
+        onChangeY: ({ velocityY }) => {
+          drift.current += velocityY * 0.0002;
+          setPoints(velocityY * 0.0005);
+          updatePolylinePoints();
+        },
+        tolerance: 10,
       });
-    };
 
-    // Observer setup
-    const obs = Observer.create({
-      type: 'wheel,touch,scroll,pointer',
-      onChangeY: ({ velocityY }) => {
-        drift.current += velocityY * 0.0002;
-        setPoints(velocityY * 0.0005);
-        updatePolylinePoints();
-      },
-      tolerance: 10,
-    });
-
-    return () => {
-      obs.kill();
-    };
-  }, []);
+      // 4. IMPORTANT: Return a cleanup function for the Observer
+      return () => {
+        obs.kill();
+      };
+    },
+    { scope: mainRef } // 5. Scope the hook to the main element
+  );
 
   return (
     <section ref={mainRef} className="relative grid place-items-center">
