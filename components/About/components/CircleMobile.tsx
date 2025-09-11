@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
-
+import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -17,11 +16,20 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
   triggerRef,
 }) => {
   const pathRef = useRef(null);
+  const [isTriggerReady, setIsTriggerReady] = useState(false);
+
+  // Use useEffect to detect when triggerRef.current becomes available
+  useEffect(() => {
+    if (triggerRef.current) {
+      setIsTriggerReady(true);
+    }
+  }, [triggerRef.current]); // This will re-run when triggerRef.current changes
+
   useGSAP(
     () => {
-      if (!triggerRef.current) return;
+      if (!triggerRef.current || !pathRef.current) return;
 
-      const animation = gsap.to(`#${circleId}`, {
+      gsap.to(`#${circleId}`, {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: 'top bottom',
@@ -32,8 +40,8 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
         },
         ease: 'none',
         motionPath: {
-          path: pathRef.current as unknown as SVGPathElement,
-          align: pathRef.current as unknown as SVGPathElement,
+          path: pathRef.current,
+          align: pathRef.current,
           alignOrigin: [0.5, 0.5],
           autoRotate: true,
           start: 1,
@@ -42,8 +50,9 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
       });
     },
     {
-      dependencies: [triggerRef.current, pathRef.current],
+      dependencies: [isTriggerReady, circleId],
       revertOnUpdate: true,
+      scope: triggerRef, // Add scope to help with cleanup
     }
   );
 
@@ -140,8 +149,8 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
       <div className="w-3/5 [grid-area:1/1]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 200 200" // Defines the internal coordinate system
-          className="h-full w-full" // Instructs the SVG to fill the div
+          viewBox="0 0 200 200"
+          className="h-full w-full"
           style={{
             transform: `rotate(${rotate}deg)`,
             transformOrigin: '50% 50%',
@@ -160,7 +169,7 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
 };
 
 const Circle: React.FC = () => {
-  const svgRef = useRef<HTMLDivElement>(null); // Ref for the trigger element
+  const svgRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
