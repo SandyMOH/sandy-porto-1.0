@@ -6,7 +6,8 @@ const JakartaTime: React.FC = () => {
   const [time, setTime] = useState('');
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    // 1. Create a function to handle the time update
+    const updateTime = () => {
       const date = new Date();
       const options = {
         timeZone: 'Asia/Jakarta',
@@ -15,8 +16,15 @@ const JakartaTime: React.FC = () => {
         hour12: true,
       };
       setTime(date.toLocaleTimeString('en-US', options));
-    }, 1000);
+    };
 
+    // 2. Call it once immediately on mount
+    updateTime();
+
+    // 3. Then, set the interval to call it every second
+    const interval = setInterval(updateTime, 60000);
+
+    // Cleanup function remains the same
     return () => clearInterval(interval);
   }, []);
 
