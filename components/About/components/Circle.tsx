@@ -164,13 +164,8 @@ const GradientCircle: React.FC<GradientCircleProps> = ({
 const Circle: React.FC<{
   triggerRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ triggerRef }) => {
-  const svgRef = useRef<HTMLDivElement>(null); // Ref for the trigger element
-
   return (
-    <div
-      ref={svgRef}
-      className="relative grid h-96 w-full place-items-center items-center justify-center"
-    >
+    <div className="relative grid h-96 w-full place-items-center items-center justify-center">
       <div className="[grid-area:1/1]">
         <GradientCircle
           circleId="circleOne"
