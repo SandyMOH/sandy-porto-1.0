@@ -87,7 +87,7 @@ const RoundButton = ({ children }: { children: React.ReactNode }) => {
   return (
     <button
       ref={buttonRef}
-      className="border-pink text-pink hover:text-background hover:border-background relative z-0 cursor-pointer overflow-hidden rounded-3xl border-2 border-solid px-5 py-2"
+      className="border-pink text-pink hover:text-background relative z-0 cursor-pointer overflow-hidden rounded-3xl border-2 border-solid px-5 py-2"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
