@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import LinkText from '@/components/ui/LinkText';
 
 import HoverChange from '@/components/ui/HoverChange';
 import Planet from './Planet';
@@ -85,11 +85,12 @@ const Footer: React.FC = () => {
           © {year} Sandy Mo. All rights reserved.
         </h6> */}
         <div className="mt-6 flex flex-col max-md:gap-8 max-md:text-center md:flex-row md:items-center md:justify-between md:text-lg">
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <h6>Based in Indonesia Working worldwide</h6>
-            <Link href="mailto:sandymo.dev@gmail.com" target="_blank">
+
+            <LinkText href="mailto:sandymo.dev@gmail.com">
               sandymo.dev@gmail.com
-            </Link>
+            </LinkText>
           </div>
           <h6 className="">© {year} Sandy Mo. All rights reserved.</h6>
         </div>
