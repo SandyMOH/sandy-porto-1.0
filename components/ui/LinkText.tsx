@@ -40,6 +40,7 @@ const LinkText: React.FC<LinkTextProps> = ({ children, href = '#' }) => {
     // 2. Replace the 'a' tag with 'Link' for client-side navigation
     <Link
       href={href}
+      target="_blank"
       ref={containerRef}
       className="inline-block w-fit cursor-pointer overflow-x-hidden"
       onMouseEnter={onEnter}
