@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                   <HoverChange
                     firstText="LinkedIn"
                     secondText="LinkedIn"
-                    link="https://github.com/SandyMOH"
+                    link="https://www.linkedin.com/in/sandy-mohammad-379ba111a/"
                     className="w-fit md:text-lg"
                   />
                 </li>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
                   <HoverChange
                     firstText="GitHub"
                     secondText="GitHub"
-                    link="https://www.linkedin.com/in/sandy-mohammad-379ba111a/"
+                    link="https://github.com/SandyMOH"
                     className="w-fit md:text-lg"
                   />
                 </li>
